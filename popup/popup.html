@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CMS Detector</title>
+  <style>
+    body {
+      width: 350px;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 15px;
+    }
+    
+    .result-container {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .detected { border-left: 4px solid #4CAF50; }
+    .not-detected { border-left: 4px solid #FFC107; }
+    .error { border-left: 4px solid #F44336; }
+    
+    .status-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    .target-info {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+    
+    .cms-list {
+      margin-top: 15px;
+    }
+    
+    .cms-item {
+      background-color: #e8f5e9;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    
+    .match-info {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+      font-size: 14px;
+      color: #666;
+    }
+    
+    .controls {
+      text-align: center;
+      margin-top: 15px;
+    }
+    
+    .retry-button {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    
+    .retry-button:hover {
+      background-color: #0d64d9;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h2>CMS 指纹检测</h2>
+  </div>
+  
+  <div id="result-container" class="result-container not-detected">
+    <div class="status-title">检测结果</div>
+    <div class="target-info">目标: <span id="target-hostname">加载中...</span></div>
+    <div class="target-info">匹配状态: <span id="match-status">等待结果</span></div>
+    <div class="match-info">
+      已检查 <span id="fingerprints-checked">0</span> 条指纹规则，
+      找到 <span id="matches-found">0</span> 条匹配
+    </div>
+  </div>
+  
+  <div class="controls">
+    <button id="retry-button" class="retry-button">重新检测</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
